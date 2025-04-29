@@ -1,0 +1,18 @@
+{
+    "name": "AgaveCase.Elements.Runtime",
+    "rootNamespace": "AgaveCase.Elements.Runtime",
+    "references": [
+        "GUID:98def15a25ea5494a982148132425977",
+        "GUID:d94316df58f6cd943b73e2598661d3e2",
+        "GUID:1b879c641f23fc74d9568cdc31bf9300"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

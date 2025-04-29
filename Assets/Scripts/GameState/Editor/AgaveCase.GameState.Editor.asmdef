@@ -1,0 +1,18 @@
+{
+    "name": "AgaveCase.GameState.Editor",
+    "rootNamespace": "AgaveCase.GameState.Editor",
+    "references": [
+        "GUID:47eb0af006abfdc4db0b57dc56f3cb68"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

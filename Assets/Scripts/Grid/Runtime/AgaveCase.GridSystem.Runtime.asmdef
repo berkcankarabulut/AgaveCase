@@ -1,0 +1,17 @@
+{
+    "name": "AgaveCase.GridSystem.Runtime",
+    "rootNamespace": "AgaveCase.GridSystem.Runtime",
+    "references": [
+        "GUID:d94316df58f6cd943b73e2598661d3e2",
+        "GUID:a573a70f2fb2eac4fb6cab63142a06d9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

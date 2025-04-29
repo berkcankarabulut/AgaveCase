@@ -1,5 +1,40 @@
 {
   "dependencies": {
+    "com.berkcankarabulut.commandhandler": {
+      "version": "https://github.com/berkcankarabulut/CommandHandler.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e03b9cf0bf828e009485d3ee4931e9f5ceae72ae"
+    },
+    "com.berkcankarabulut.guid": {
+      "version": "https://github.com/berkcankarabulut/Guid.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "445fd49ed6e0d6d4240fe902976e071f520cc6f4"
+    },
+    "com.berkcankarabulut.sceneloader": {
+      "version": "https://github.com/berkcankarabulut/SceneLoader.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d070dc4f90e5bb60e393af2351c3c189f1af86d6"
+    },
+    "com.berkcankarabulut.singletonhandler": {
+      "version": "https://github.com/berkcankarabulut/SingletonHandler.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9920acbe7b4c6c7cc5a76169c9a6e4d285e8b1d0"
+    },
+    "com.berkcankarabulut.tagselector": {
+      "version": "https://github.com/berkcankarabulut/TagSelector.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "856084b177f1cda29007ecaebc8958a95310f21a"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,

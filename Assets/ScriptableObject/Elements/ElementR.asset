@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374254dd24abaf64a91ddaa89dfac7bb, type: 3}
+  m_Name: ElementR
+  m_EditorClassIdentifier: 
+  _id:
+    Part1: 3171671165
+    Part2: 1307851439
+    Part3: 467031993
+    Part4: 1843041427
+  _elementName: ElementR
+  _icon: {fileID: 21300000, guid: c1f31e831f62a4945b79716764f90650, type: 3}
+  _baseSpeed: 1
+  _baseValue: 10
+  _spawnEffectPrefab: {fileID: 0}
+  _destroyEffectPrefab: {fileID: 0}
+  _spawnSound: {fileID: 0}
+  _destroySound: {fileID: 0}

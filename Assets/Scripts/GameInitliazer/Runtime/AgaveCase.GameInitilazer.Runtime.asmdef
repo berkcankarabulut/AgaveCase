@@ -1,0 +1,19 @@
+{
+    "name": "AgaveCase.GameInitilazer.Runtime",
+    "rootNamespace": "AgaveCase.GameInitilazer.Runtime",
+    "references": [
+        "GUID:a2ba0e040e50baf47b4efc0fe5503f44",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:d26d7d25dfa5af148a7a82dc0cc14384",
+        "GUID:5564ccf4aa9a493469b0ab07d3850ba2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

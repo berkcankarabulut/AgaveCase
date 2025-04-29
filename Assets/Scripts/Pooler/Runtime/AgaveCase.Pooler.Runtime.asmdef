@@ -1,0 +1,16 @@
+{
+    "name": "AgaveCase.Pooler.Runtime",
+    "rootNamespace": "AgaveCase.Pooler.Runtime",
+    "references": [
+        "GUID:1b879c641f23fc74d9568cdc31bf9300"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

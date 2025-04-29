@@ -1,0 +1,19 @@
+{
+    "name": "AgaveCase.Elements.Editor",
+    "rootNamespace": "AgaveCase.Elements.Editor",
+    "references": [
+        "GUID:a573a70f2fb2eac4fb6cab63142a06d9",
+        "GUID:98def15a25ea5494a982148132425977"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

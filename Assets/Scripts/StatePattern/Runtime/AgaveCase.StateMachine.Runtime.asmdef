@@ -1,0 +1,14 @@
+{
+    "name": "AgaveCase.StateMachine.Runtime",
+    "rootNamespace": "AgaveCase.StateMachine.Runtime",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
