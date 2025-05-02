@@ -20,5 +20,10 @@ namespace AgaveCase.Data.Runtime
         {
            _targetScore = targetScore;
         }
+
+        public void SetMoveLimit(int moveLimit)
+        {
+            _movesLimit = moveLimit;
+        }
     }
 }

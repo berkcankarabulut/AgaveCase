@@ -81,12 +81,12 @@ namespace AgaveCase.GameState.Runtime
         } 
         
         private void WinGame()
-        {
+        { 
             ChangeState<WinState>();
         }
          
         private void LoseGame()
-        {
+        { 
             ChangeState<LoseState>(); 
         }
 

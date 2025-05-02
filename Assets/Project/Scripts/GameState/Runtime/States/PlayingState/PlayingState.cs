@@ -82,8 +82,7 @@ namespace AgaveCase.GameState.Runtime
         }
 
         private void OnOutOfMoves()
-        {
-            GameStateMachine.GameEnded();
+        { 
         }
 
         private void OnBoardShuffleStarted()

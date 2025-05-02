@@ -18,6 +18,6 @@ MonoBehaviour:
     _cellSize: 1
     _screenFillPercentage: 0.8
   gameData:
-    _targetScore: 200
-    _movesLimit: 20
+    _targetScore: 10
+    _movesLimit: 6
     _minMatchCount: 3

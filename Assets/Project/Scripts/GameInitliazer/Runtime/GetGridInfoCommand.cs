@@ -13,6 +13,10 @@ namespace AgaveCase.GameInitilazer.Runtime
         [Header("Panel")] 
         [SerializeField] private GameObject _panelGO;
         
+        [Space(10), Header("Move Elements")]
+        [SerializeField] private TextMeshProUGUI _moveTitleText;
+        [SerializeField] private Slider _moveInput;
+        
         [Space(10),Header("Width Elements")] 
         [SerializeField] private TextMeshProUGUI _widthTitleText;
         [SerializeField] private Slider _widthInput;
@@ -33,18 +37,38 @@ namespace AgaveCase.GameInitilazer.Runtime
             Undo();
             _targetScoreField.placeholder.GetComponent<TextMeshProUGUI>().text =
                 _dataContainer.gameData.TargetScore.ToString();
-            
-            _widthInput.onValueChanged.AddListener(OnWidthSliderValueChanged);
-            _heightInput.onValueChanged.AddListener(OnHeightSliderValueChanged);
-            _createButton.onClick.AddListener(OnCreateButtonClicked);
+            AddEvents();
         }
 
         public override void Undo()
         {  
             _widthInput.value = _dataContainer.gridData.Width;
-            _heightInput.value = _dataContainer.gridData.Height; 
+            _heightInput.value = _dataContainer.gridData.Height;
+            _moveInput.value = _dataContainer.gameData.MovesLimit;
+            _moveTitleText.text = "Move Limit: " + _dataContainer.gameData.MovesLimit;
             _widthTitleText.text = "Width:" + _widthInput.value; 
             _heightTitleText.text = "Height:" +_heightInput.value;
+        }
+
+        private void AddEvents()
+        {
+            _moveInput.onValueChanged.AddListener(OnMoveSliderValueChanged);
+            _widthInput.onValueChanged.AddListener(OnWidthSliderValueChanged);
+            _heightInput.onValueChanged.AddListener(OnHeightSliderValueChanged);
+            _createButton.onClick.AddListener(OnCreateButtonClicked);
+        }
+
+        private void RemoveEvents()
+        {
+            _moveInput.onValueChanged.RemoveListener(OnMoveSliderValueChanged);
+            _heightInput.onValueChanged.RemoveListener(OnHeightSliderValueChanged);
+            _widthInput.onValueChanged.RemoveListener(OnWidthSliderValueChanged);
+            _createButton.onClick.RemoveListener(OnCreateButtonClicked);
+        }
+
+        private void OnMoveSliderValueChanged(float moveLimit)
+        {
+            _moveTitleText.text = "Move Limit: " + _moveInput.value;
         }
 
         private void OnHeightSliderValueChanged(float height)
@@ -70,11 +94,11 @@ namespace AgaveCase.GameInitilazer.Runtime
                 {
                     _dataContainer.gameData.SetTargetScore(targetScore);
                 } 
-            } 
+            }
+
+            _dataContainer.gameData.SetMoveLimit((int)_moveInput.value);
             
-            _heightInput.onValueChanged.RemoveListener(OnHeightSliderValueChanged);
-            _widthInput.onValueChanged.RemoveListener(OnWidthSliderValueChanged);
-            
+            RemoveEvents(); 
             _panelGO.SetActive(false);    
             base.Complete();
         }
