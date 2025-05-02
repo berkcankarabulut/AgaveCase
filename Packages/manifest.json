@@ -2,7 +2,6 @@
   "dependencies": {
     "com.berkcankarabulut.commandhandler": "https://github.com/berkcankarabulut/CommandHandler.git",
     "com.berkcankarabulut.guid": "https://github.com/berkcankarabulut/Guid.git",
-    "com.berkcankarabulut.sceneloader": "https://github.com/berkcankarabulut/SceneLoader.git",
     "com.berkcankarabulut.singletonhandler": "https://github.com/berkcankarabulut/SingletonHandler.git",
     "com.berkcankarabulut.tagselector": "https://github.com/berkcankarabulut/TagSelector.git",
     "com.unity.collab-proxy": "2.0.1",

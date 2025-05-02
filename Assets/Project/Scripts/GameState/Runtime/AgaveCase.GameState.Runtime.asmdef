@@ -1,0 +1,21 @@
+{
+    "name": "AgaveCase.GameState.Runtime",
+    "rootNamespace": "AgaveCase.GameState.Runtime",
+    "references": [
+        "GUID:94559cddcde81c14198247a96b9979ac",
+        "GUID:d26d7d25dfa5af148a7a82dc0cc14384",
+        "GUID:a573a70f2fb2eac4fb6cab63142a06d9",
+        "GUID:ae6778352f635464a8fed0e6370856b4",
+        "GUID:c336ec5d03730ad42965e922ff340331",
+        "GUID:43a3871c32ac97543b92020311142d48"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

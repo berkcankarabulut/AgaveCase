@@ -1,0 +1,16 @@
+{
+    "name": "AgaveCase.SceneHandler.Runtime",
+    "rootNamespace": "AgaveCase.SceneHandler.Runtime",
+    "references": [
+        "GUID:45092eaf6b140bb4a91879ab7308787c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
