@@ -8,8 +8,7 @@ namespace AgaveCase.Elements.Runtime
     public class ElementAnimationHandler
     {
         private readonly DefaultElement _element;
-        private readonly Transform _transform;
-        private readonly SpriteRenderer _selectedRenderer;
+        private readonly Transform _transform; 
         private readonly SpriteRenderer _spriteRenderer;
         private Vector3 _originalScale;
 
@@ -26,20 +25,16 @@ namespace AgaveCase.Elements.Runtime
 
         public ElementAnimationHandler(
             DefaultElement element,
-            Transform transform,
-            SpriteRenderer selectedRenderer)
+            Transform transform)
         {
             _element = element;
-            _transform = transform;
-            _selectedRenderer = selectedRenderer;
-            _spriteRenderer = element.GetComponent<SpriteRenderer>();
+            _transform = transform; 
+            _spriteRenderer = element.SpriteRenderer;
             _originalScale = transform.localScale;
 
-            if (!_isInitialized)
-            {
-                DOTween.SetTweensCapacity(500, 50);
-                _isInitialized = true;
-            }
+            if (_isInitialized) return;
+            DOTween.SetTweensCapacity(500, 50);
+            _isInitialized = true;
         }
 
         public void SetAnimationSettings(
@@ -90,9 +85,9 @@ namespace AgaveCase.Elements.Runtime
         }
 
         public void PlayMatchAnimation(Action onCompleted = null)
-        {
+        { 
             if (_element == null || _transform == null) return;
-
+     
             if (_spriteRenderer == null)
             {
                 onCompleted?.Invoke();
@@ -118,8 +113,7 @@ namespace AgaveCase.Elements.Runtime
                 {
                     _activeAnimations.Remove(_element);
                 }
-            });
-
+            }); 
             _activeAnimations[_element] = sequence;
         }
 
@@ -170,11 +164,6 @@ namespace AgaveCase.Elements.Runtime
                 DOTween.Kill(_spriteRenderer.material);
                 DOTween.Kill(_spriteRenderer);
             }
-        }
-
-        public Vector3 GetOriginalScale()
-        {
-            return _originalScale;
-        }
+        } 
     }
 }

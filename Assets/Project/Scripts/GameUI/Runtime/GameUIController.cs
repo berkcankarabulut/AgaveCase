@@ -90,17 +90,17 @@ namespace AgaveCase.GameUI.Runtime
             _moveUI.UpdateMovesUI(_moveData.MovesRemaining);
         } 
 
-        public void SetStatusLoseUI(bool status)
+        public void SetLosePanel(bool status)
         {  
             _losePanel.SetActive(status);
         }
         
-        public void SetStatusWinUI(bool status)
+        public void SetWinPanel(bool status)
         { 
             _winPanel.SetActive(status);
         } 
 
-        public void SetStatusGamePanel(bool status)
+        public void SetGamePanel(bool status)
         { 
             _gamePanel.SetActive(status);
         }

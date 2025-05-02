@@ -5,7 +5,7 @@ namespace AgaveCase.Elements.Runtime
     public class ElementStateHandler
     {
         private readonly DefaultElement _element;
-        private readonly SpriteRenderer _selectedRenderer;
+        private readonly SpriteRenderer _selectedRenderer; 
 
         public ElementStateHandler(DefaultElement element, SpriteRenderer selectedRenderer)
         {
@@ -14,7 +14,7 @@ namespace AgaveCase.Elements.Runtime
         }
 
         public void OnSelected()
-        {
+        { 
             if (_selectedRenderer != null)
             {
                 _selectedRenderer.enabled = true;
@@ -34,7 +34,7 @@ namespace AgaveCase.Elements.Runtime
         }
 
         public void OnMatched()
-        {
+        { 
             if (_selectedRenderer != null)
             {
                 _selectedRenderer.enabled = false;

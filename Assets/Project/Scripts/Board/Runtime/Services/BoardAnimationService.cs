@@ -10,9 +10,7 @@ namespace AgaveCase.Board.Runtime
     public class BoardAnimationService
     {
         private int _activeAnimationsCount = 0;
-
         private List<Action> _allAnimationCompletedCallbacks = new List<Action>();
-
         private readonly BoardManager _boardManager;
 
         public BoardAnimationService(BoardManager boardManager)
@@ -28,7 +26,8 @@ namespace AgaveCase.Board.Runtime
             DOVirtual.DelayedCall(matchAnimationDelay, () => { ApplyGravity(); });
         }
 
-        public void ProcessMatchedElementsWithCallback(List<Vector2Int> positions, float matchAnimationDelay, Action onCompleted)
+        public void ProcessMatchedElementsWithCallback(List<Vector2Int> positions, float matchAnimationDelay,
+            Action onCompleted)
         {
             if (onCompleted != null)
             {
@@ -46,12 +45,13 @@ namespace AgaveCase.Board.Runtime
             {
                 GridCell cell = _boardManager.GetGridAt(pos);
                 if (cell == null) continue;
-                
+        
                 ElementBase element = cell.GetElement(); 
                 if (element is DefaultElement defaultElement) 
-                {
-                    defaultElement.OnMatched();
-                    cell.SetCandy(null);
+                { 
+                    var tempElement = defaultElement;  
+                    cell.SetElement(null);  
+                    tempElement.OnMatched();  
                 }
             }
         }
@@ -105,18 +105,19 @@ namespace AgaveCase.Board.Runtime
             return null;
         }
 
-        private void MoveElementToEmptyCell(GridCell sourceCell, GridCell targetCell, int fallOrder, float duration, Ease easeType, float delayBetweenFalls)
+        private void MoveElementToEmptyCell(GridCell sourceCell, GridCell targetCell, int fallOrder, float duration,
+            Ease easeType, float delayBetweenFalls)
         {
             ElementBase element = sourceCell.GetElement();
-             
+
             if (!(element is DefaultElement defaultElement)) return;
 
-            targetCell.SetCandy(element);
-            sourceCell.SetCandy(null);
+            targetCell.SetElement(element);
+            sourceCell.SetElement(null);
             element.transform.SetParent(targetCell.transform);
             _activeAnimationsCount++;
             float delay = fallOrder * delayBetweenFalls;
-            
+
             defaultElement.PlayFallAnimation(targetCell.transform.position, duration, easeType, delay, () =>
                 {
                     _activeAnimationsCount--;
@@ -129,9 +130,10 @@ namespace AgaveCase.Board.Runtime
         }
 
         private void FillEmptyCells()
-        {
+        { 
             int gridWidth = _boardManager.GridWidth;
             int gridHeight = _boardManager.GridHeight;
+            bool anyNewElementSpawned = false;
 
             for (int x = 0; x < gridWidth; x++)
             {
@@ -140,28 +142,45 @@ namespace AgaveCase.Board.Runtime
                 {
                     GridCell cell = _boardManager.GetGridAt(x, y);
                     if (cell == null) continue;
-                    if (cell.GetElement() != null) continue;
-                    _boardManager.SpawnElementAtCellWithAnimation(cell, newElementCount, OnNewElementSpawned,
-                        OnNewElementAnimationCompleted);
-                    newElementCount++;
+ 
+                    if (cell.GetElement() == null)
+                    { 
+                        _boardManager.SpawnElementAtCellWithAnimation(cell, newElementCount, OnNewElementSpawned,
+                            OnNewElementAnimationCompleted);
+                        newElementCount++;
+                        anyNewElementSpawned = true;
+                    }
                 }
             }
 
-            if (_activeAnimationsCount == 0) OnAllAnimationsCompleted();
+            if (!anyNewElementSpawned && _allAnimationCompletedCallbacks.Count > 0)
+            { 
+                OnAllAnimationsCompleted();
+            }
+            else if (!anyNewElementSpawned)
+            {
+                Debug.Log("[Board] No new elements spawned and no callbacks pending.");
+            }
+            else if (_activeAnimationsCount == 0)
+            { 
+                OnAllAnimationsCompleted();
+            }
+            else
+            { 
+            }
         }
 
         private void OnNewElementSpawned()
         {
-            _activeAnimationsCount++;
+            _activeAnimationsCount++; 
         }
 
         private void OnNewElementAnimationCompleted()
         {
             _activeAnimationsCount--;
-            if (_activeAnimationsCount == 0)
-            {
-                OnAllAnimationsCompleted();
-            }
+
+            if (_activeAnimationsCount != 0) return;
+            OnAllAnimationsCompleted();
         }
 
         public void AddAnimationCompletedCallback(Action callback)
@@ -173,11 +192,12 @@ namespace AgaveCase.Board.Runtime
         }
 
         private void OnAllAnimationsCompleted()
-        { 
+        {
             foreach (var callback in _allAnimationCompletedCallbacks)
             {
                 callback?.Invoke();
-            } 
+            }
+
             _allAnimationCompletedCallbacks.Clear();
         }
     }

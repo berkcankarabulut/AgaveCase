@@ -19,6 +19,6 @@ MonoBehaviour:
     Part4: 2761829450
   _elementName: ElementB
   _icon: {fileID: 21300000, guid: 6d56813a3e2614448834ed32a7f80885, type: 3}
-  _pointValue: 10
+  _pointValue: 1
   _elementPoolTypeSo: {fileID: 11400000, guid: a3b217b34aa2e174c8bce05177bd8ea6, type: 2}
   _destroyPoolTypeSo: {fileID: 11400000, guid: cec18ab61e4726640b1d9abbbaf2d4c0, type: 2}

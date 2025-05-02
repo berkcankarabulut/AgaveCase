@@ -77,17 +77,23 @@ namespace AgaveCase.Board.Runtime
         private Vector3 CalculateStartPosition(int width, int height)
         {
             float adjustedCellSize = CalculateCellSizeBasedOnCamera(width, height);
-            
+    
             float totalWidth = width * adjustedCellSize;
             float totalHeight = height * adjustedCellSize;
-            
+    
             Vector3 cameraPosition = new Vector3(_camera.transform.position.x, _camera.transform.position.y, 0);
+     
+            float yOffset = 0;
+            if (height > width) { 
+                yOffset = totalHeight * 0.1f;  
+            }
+    
             Vector3 startPos = cameraPosition - new Vector3(
                 totalWidth * 0.5f - (adjustedCellSize * 0.5f),
-                totalHeight * 0.5f - (adjustedCellSize * 0.5f),
+                totalHeight * 0.5f - (adjustedCellSize * 0.5f) + yOffset,
                 0
             );
-            
+    
             return startPos;
         }
          

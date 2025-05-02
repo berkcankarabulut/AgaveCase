@@ -28,7 +28,7 @@ public class DefaultElement : ElementBase
             selectedRenderer.enabled = false;
         }
          
-        _animationHandler = new ElementAnimationHandler(this, transform, selectedRenderer);
+        _animationHandler = new ElementAnimationHandler(this, transform);
         _stateHandler = new ElementStateHandler(this, selectedRenderer);
          
         AnimationHandler.SetAnimationSettings(

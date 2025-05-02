@@ -1,28 +1,25 @@
-using AgaveCase.Data.Runtime;
-using AgaveCase.GameUI.Runtime;
-using UnityEngine; 
-
 namespace AgaveCase.GameState.Runtime
 { 
     public class WinState : BaseGameState
     {
-        private ScoreData _scoreData; 
-        private GameUIController _UIController;
+        private readonly IScoreService _scoreService;
+        private readonly IUIService _uiService;
+    
         public WinState(GameStateMachine stateMachine) 
             : base(stateMachine)
         { 
-            _scoreData = stateMachine.ScoreData;
-            _UIController = stateMachine.UIController;
+            _scoreService = stateMachine.ScoreService;
+            _uiService = stateMachine.UIService;
         }
 
         public override void Enter()
-        { 
-            _UIController.SetStatusWinUI(true); 
+        {
+            _uiService.SetStatusGamePanel(true); 
         } 
 
         public override void Exit()
         {
-            _UIController.SetStatusWinUI(false);
+            _uiService.SetStatusGamePanel(false);
         }
     }
 }

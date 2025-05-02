@@ -52,16 +52,17 @@ namespace AgaveCase.Elements.Runtime
         }
 
         public void ReturnToPool()
-        {
+        { 
             ResetElement();
 
             if (_element.Pooler != null)
-            {
-                _element.Pooler.Release(_element);
+            { 
+                _element.Pooler.Release(_element); 
+                _element.GameObject.transform.SetParent(null);
             }
             else
-            {
-                _element.gameObject.SetActive(false);
+            { 
+                _element.GameObject.SetActive(false);
             }
         }
     }

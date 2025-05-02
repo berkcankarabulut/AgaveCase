@@ -5,7 +5,7 @@ using AgaveCase.Data.Runtime;
 using AgaveCase.GameUI.Runtime; 
 
 namespace AgaveCase.GameState.Runtime
-{ 
+{  
     public class GameStateMachine : BaseStateMachine
     {   
         [Header("Data Container")]
@@ -17,20 +17,24 @@ namespace AgaveCase.GameState.Runtime
         
         [Header("Visual Effects")]
         [SerializeField] private LineRenderer _selectionLineRenderer;
-        
-        private ScoreData _scoreData;
-        private MoveData _moveData;
-        
+         
+        private IBoardService _boardService;
+        private IScoreService _scoreService;
+        private IMoveService _moveService;
+        private IUIService _uiService;
+         
         private PlayingState _playingState;
         private WinState _winState;
         private LoseState _loseState; 
-        
-        public ScoreData ScoreData => _scoreData;
-        public MoveData MoveData => _moveData;
-        public BoardManager BoardManager => _boardManager;
+         
+        public IBoardService BoardService => _boardService;
+        public IScoreService ScoreService => _scoreService;
+        public IMoveService MoveService => _moveService;
+        public IUIService UIService => _uiService;
         public DataContainer DataContainer => _dataContainer;
-
-        public GameUIController UIController => _gameUIController;
+         
+        public ScoreData ScoreData { get; private set; }
+        public MoveData MoveData { get; private set; }
 
         private void Awake()
         {   
@@ -38,20 +42,31 @@ namespace AgaveCase.GameState.Runtime
         } 
 
         protected override void Initialize()
+        {  
+            InitializeServices(); 
+            CreateStates();  
+            StartGame();
+        }
+
+        private void InitializeServices()
         { 
             if (_boardManager != null) _boardManager.Init();
-            _scoreData = new ScoreData(_dataContainer.gameData.TargetScore);
-            _moveData = new MoveData(_dataContainer.gameData.MovesLimit);
+            ScoreData = new ScoreData(_dataContainer.gameData.TargetScore);
+            MoveData = new MoveData(_dataContainer.gameData.MovesLimit);
             
-            if(UIController != null) UIController.Init(_scoreData, _moveData);
-            
-            CreateStates(); 
-            StartGame();
+            if(_gameUIController != null) _gameUIController.Init(ScoreData, MoveData);
+             
+            _boardService = new BoardServiceAdapter(_boardManager);
+            _scoreService = new ScoreServiceAdapter(ScoreData);
+            _moveService = new MoveServiceAdapter(MoveData);
+            _uiService = new UIServiceAdapter(_gameUIController);
+             
+            _moveService.OnOutOfMoves += GameEnded;
         }
 
         private void CreateStates()
         {
-            _playingState = new PlayingState(this, _boardManager, _selectionLineRenderer);
+            _playingState = new PlayingState(this, _selectionLineRenderer);
             _winState = new WinState(this);
             _loseState = new LoseState(this);  
              
@@ -59,7 +74,7 @@ namespace AgaveCase.GameState.Runtime
             AddState(_winState);
             AddState(_loseState);
         }
-
+        
         private void StartGame()
         {  
             ChangeState<PlayingState>();
@@ -77,7 +92,7 @@ namespace AgaveCase.GameState.Runtime
 
         public void GameEnded()
         {
-             if(_scoreData.IsGoalReached) WinGame();
+             if(ScoreService.IsGoalReached) WinGame();
              else LoseGame();
         }
     }

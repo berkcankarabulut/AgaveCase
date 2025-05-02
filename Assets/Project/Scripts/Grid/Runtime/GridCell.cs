@@ -6,21 +6,22 @@ namespace Grid.Runtime
     public class GridCell : MonoBehaviour
     {  
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        private Vector2Int _position;
-        private ElementBase _currentElement;
-        public Vector2Int Position => _position;
-
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        
+        private ElementBase _currentElement;
+        
+        private Vector2Int _position;
+        public Vector2Int Position => _position; 
 
         public void Initialize(Vector2Int position)
         {
             _position = position; 
         }
 
-        public void SetCandy(ElementBase element)
-        {
-            _currentElement = element;
-            if (element == null) return; 
+        public void SetElement(ElementBase element)
+        { 
+            if (element == null) _currentElement = null;
+            else _currentElement = element;
         }
 
         public ElementBase GetElement()

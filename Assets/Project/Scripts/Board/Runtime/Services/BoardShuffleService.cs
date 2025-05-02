@@ -92,7 +92,7 @@ namespace AgaveCase.Board.Runtime
                 if (cell != null && cell.GetElement() != null)
                 {
                     allElements.Add(cell.GetElement()); 
-                    cell.SetCandy(null);
+                    cell.SetElement(null);
                 }
             }
              
@@ -108,7 +108,7 @@ namespace AgaveCase.Board.Runtime
                 {
                     element.transform.position = cell.transform.position;
                     element.transform.SetParent(cell.transform);
-                    cell.SetCandy(element);
+                    cell.SetElement(element);
                 }
             }
         } 

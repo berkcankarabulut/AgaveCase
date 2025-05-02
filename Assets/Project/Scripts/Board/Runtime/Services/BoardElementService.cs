@@ -84,7 +84,7 @@ namespace AgaveCase.Board.Runtime
             if (element == null) return;
             
             _objectPooler.Release(element);
-            cell.SetCandy(null);
+            cell.SetElement(null);
         }
          
         public void StartShuffleAnimation(GridCell[,] gridCells, float duration, Action onCompleted)
@@ -122,6 +122,11 @@ namespace AgaveCase.Board.Runtime
                 return;
             }
              
+            AnimateElementsToCells(duration, onCompleted, allElements, centerPosition);
+        }
+
+        private static void AnimateElementsToCells(float duration, Action onCompleted, List<ElementBase> allElements, Vector3 centerPosition)
+        {
             int completedCount = 0;
             foreach (ElementBase element in allElements)
             {
@@ -152,7 +157,7 @@ namespace AgaveCase.Board.Runtime
                 }
             }
         }
-         
+
         private ElementDataSO GetRandomElementType()
         {
             if (_availableElements == null || _availableElements.Length == 0) return null;
@@ -181,7 +186,7 @@ namespace AgaveCase.Board.Runtime
             element.transform.localScale = _elementScale;
          
             element.Initialize(elementData);
-            cell.SetCandy(element); 
+            cell.SetElement(element); 
         }
     }
 }

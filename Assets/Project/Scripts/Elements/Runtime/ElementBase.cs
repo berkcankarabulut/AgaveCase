@@ -12,21 +12,24 @@ namespace AgaveCase.Elements.Runtime
         public GameObject GameObject => gameObject;
      
         private ElementDataSO _elementData;
-        public ElementDataSO ElementData => _elementData; 
+        public ElementDataSO ElementData => _elementData;
+
+        public SpriteRenderer SpriteRenderer => spriteRenderer;
+
         private ElementPoolHandler _poolHandler;
      
         public virtual void Initialize(ElementDataSO elementDataSO)
         {
             _elementData = elementDataSO;
-            if (spriteRenderer == null) return;
-            spriteRenderer.sprite = _elementData.Icon; 
+            if (SpriteRenderer == null) return;
+            SpriteRenderer.sprite = _elementData.Icon; 
         }
      
         public virtual void OnGetFromPool()
         {
             gameObject.SetActive(true);
            
-            _poolHandler ??= new ElementPoolHandler(this, spriteRenderer);
+            _poolHandler ??= new ElementPoolHandler(this, SpriteRenderer);
             _poolHandler.OnGetFromPool();
         }
     
