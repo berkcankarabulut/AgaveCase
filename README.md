@@ -163,7 +163,7 @@
     <ol>
         <li>Clone the repository</li>
         <li>Open the project in Unity (version 2021.3 or higher recommended)</li>
-        <li>Open the main scene in <code>Assets/Scenes/</code></li>
+        <li>Open the Persistent Scene in <code>Assets/Scenes/</code></li>
         <li>Press Play to run the game</li>
     </ol>    
     <h2>
