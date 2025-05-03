@@ -219,10 +219,10 @@ namespace AgaveCase.GameState.Runtime
                 positions.Add(cell.Position);
             }
  
+            _moveService.DecrementMove();
             _boardService.AddAnimationCompletedCallback(() =>
             {
                 _inputHandler.EnableInput(true);
-                _moveService.DecrementMove();
             });
  
             _boardService.ProcessMatchedElementsWithCallback(positions, () => { });
