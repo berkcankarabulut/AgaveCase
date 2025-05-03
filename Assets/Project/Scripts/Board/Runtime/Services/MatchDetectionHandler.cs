@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace AgaveCase.Board.Runtime
 {  
-    public class BoardMatchDetectionService
+    public class MatchDetectionHandler
     {
         private readonly BoardManager _boardManager;
         private const int _MIN_MATCH_COUNT = 3;  
 
-        public BoardMatchDetectionService(BoardManager boardManager)
+        public MatchDetectionHandler(BoardManager boardManager)
         {
             _boardManager = boardManager;
         }

@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace AgaveCase.Board.Runtime
 { 
-    public class BoardElementService
+    public class ElementHandler
     {
         private readonly ElementDataSO[] _availableElements;
         private readonly ElementBase _elementPrefab;
         private readonly ObjectPooler _objectPooler;
         private readonly Vector3 _elementScale = new Vector3(0.8f,0.8f,1);
-        public BoardElementService(ElementDataSO[] availableElements, ElementBase elementPrefab, ObjectPooler objectPooler)
+        public ElementHandler(ElementDataSO[] availableElements, ElementBase elementPrefab, ObjectPooler objectPooler)
         {
             _availableElements = availableElements;
             _elementPrefab = elementPrefab;
@@ -85,77 +85,6 @@ namespace AgaveCase.Board.Runtime
             
             _objectPooler.Release(element);
             cell.SetElement(null);
-        }
-         
-        public void StartShuffleAnimation(GridCell[,] gridCells, float duration, Action onCompleted)
-        {
-            Vector3 centerPosition = Vector3.zero;
-            List<ElementBase> allElements = new List<ElementBase>();
-             
-            int width = gridCells.GetLength(0);
-            int height = gridCells.GetLength(1);
-             
-            if (width > 0 && height > 0 && gridCells[0, 0] != null)
-            {
-                Vector3 bottomLeft = gridCells[0, 0].transform.position;
-                Vector3 topRight = gridCells[width - 1, height - 1].transform.position;
-                centerPosition = (bottomLeft + topRight) * 0.5f;
-            }
-             
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    GridCell cell = gridCells[x, y];
-                    if (cell == null) continue;
-                    
-                    ElementBase element = cell.GetElement();
-                    if (element == null) continue;
-                    
-                    allElements.Add(element);
-                }
-            }
-             
-            if (allElements.Count == 0)
-            {
-                onCompleted?.Invoke();
-                return;
-            }
-             
-            AnimateElementsToCells(duration, onCompleted, allElements, centerPosition);
-        }
-
-        private static void AnimateElementsToCells(float duration, Action onCompleted, List<ElementBase> allElements, Vector3 centerPosition)
-        {
-            int completedCount = 0;
-            foreach (ElementBase element in allElements)
-            {
-                if (element is DefaultElement defaultElement)
-                {
-                    defaultElement.PlayFallAnimation(
-                        centerPosition,
-                        duration / 2f,
-                        DG.Tweening.Ease.InBack,
-                        0f,
-                        () => {
-                            completedCount++;
-                            if (completedCount >= allElements.Count)
-                            { 
-                                onCompleted?.Invoke();
-                            }
-                        }
-                    );
-                }
-                else
-                { 
-                    element.transform.position = centerPosition;
-                    completedCount++;
-                    if (completedCount >= allElements.Count)
-                    {
-                        onCompleted?.Invoke();
-                    }
-                }
-            }
         }
 
         private ElementDataSO GetRandomElementType()

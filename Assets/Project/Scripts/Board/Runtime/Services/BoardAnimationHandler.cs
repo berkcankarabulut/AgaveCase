@@ -7,13 +7,13 @@ using DG.Tweening;
 
 namespace AgaveCase.Board.Runtime
 {
-    public class BoardAnimationService
+    public class BoardAnimationHandler
     {
         private int _activeAnimationsCount = 0;
         private List<Action> _allAnimationCompletedCallbacks = new List<Action>();
         private readonly BoardManager _boardManager;
 
-        public BoardAnimationService(BoardManager boardManager)
+        public BoardAnimationHandler(BoardManager boardManager)
         {
             _boardManager = boardManager;
         }
@@ -164,9 +164,6 @@ namespace AgaveCase.Board.Runtime
             else if (_activeAnimationsCount == 0)
             { 
                 OnAllAnimationsCompleted();
-            }
-            else
-            { 
             }
         }
 

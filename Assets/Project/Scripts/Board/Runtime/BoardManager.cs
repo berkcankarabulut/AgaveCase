@@ -35,11 +35,11 @@ namespace AgaveCase.Board.Runtime
         private GridCell[,] _gridCells;
         private Camera _mainCamera;
          
-        private BoardGridService _gridService;
-        private BoardElementService _elementService;
-        private BoardAnimationService _animationService;
-        private BoardMatchDetectionService _matchDetectionService;
-        private BoardShuffleService _shuffleService;
+        private GridHandler _gridHandler;
+        private ElementHandler _elementHandler;
+        private BoardAnimationHandler _boardAnimationHandler;
+        private MatchDetectionHandler _matchDetectionHandler;
+        private ShuffleHandler _shuffleHandler;
          
         private bool _isShuffling = false;
         private int _currentShuffleAttempt = 0;
@@ -57,7 +57,7 @@ namespace AgaveCase.Board.Runtime
         {  
             _mainCamera = Camera.main; 
         
-            _gridService = new BoardGridService(
+            _gridHandler = new GridHandler(
                 _gridPrefab, 
                 _gridContainer, 
                 _dataContainer.gridData.CellSize,
@@ -65,26 +65,26 @@ namespace AgaveCase.Board.Runtime
                 _mainCamera
             );
          
-            _elementService = new BoardElementService(
+            _elementHandler = new ElementHandler(
                 _availableElements,
                 _elementPrefab,
                 _objectPooler
             );
         
-            _animationService = new BoardAnimationService(this);
-            _matchDetectionService = new BoardMatchDetectionService(this);
-            _shuffleService = new BoardShuffleService(this, _matchDetectionService);
+            _boardAnimationHandler = new BoardAnimationHandler(this);
+            _matchDetectionHandler = new MatchDetectionHandler(this);
+            _shuffleHandler = new ShuffleHandler(this, _matchDetectionHandler);
+            
+            _gridCells = _gridHandler.CreateGrid(GridWidth, GridHeight);
          
-            _gridCells = _gridService.CreateGrid(GridWidth, GridHeight);
-         
-            _elementService.SetupElements(_gridCells);
+            _elementHandler.SetupElements(_gridCells);
          
             Invoke(nameof(CheckForPotentialMatches), 0.1f);
         }
          
         public GridCell GetGridAt(int x, int y)
         {
-            return _gridService.GetCellAt(x, y, _gridCells);
+            return _gridHandler.GetCellAt(x, y, _gridCells);
         }
  
         public GridCell GetGridAt(Vector2Int position)
@@ -100,7 +100,7 @@ namespace AgaveCase.Board.Runtime
                 return;
             }
             
-            _animationService.ProcessMatchedElementsWithCallback(positions, _matchAnimationDelay, () => {
+            _boardAnimationHandler.ProcessMatchedElementsWithCallback(positions, _matchAnimationDelay, () => {
                 CheckForPotentialMatches();
                 onCompleted?.Invoke();
             });
@@ -108,7 +108,7 @@ namespace AgaveCase.Board.Runtime
          
         public void SpawnElementAtCellWithAnimation(GridCell cell, int spawnOrder, Action onSpawned = null, Action onCompleted = null)
         {
-            _elementService.SpawnElementAtCellWithAnimation(
+            _elementHandler.SpawnElementAtCellWithAnimation(
                 cell, 
                 spawnOrder, 
                 _newElementFallingDuration, 
@@ -123,30 +123,30 @@ namespace AgaveCase.Board.Runtime
         {
             if (_isShuffling) return;
             
-            if (!_matchDetectionService.HasPotentialMatches()) ShuffleBoard();
+            if (!_matchDetectionHandler.HasPotentialMatches()) ShuffleBoard();
             else _currentShuffleAttempt = 0;
         }
          
         private void ShuffleBoard()
         {
             if (_isShuffling) return;
-            
+    
             _isShuffling = true;
             _currentShuffleAttempt++;
-            
+    
             OnBoardShuffleStarted?.Invoke();
-             
-            _elementService.StartShuffleAnimation(_gridCells, _shuffleAnimationDuration, () => {
-                _shuffleService.ShuffleBoard();
-                
-                bool hasPotentialMatches = _matchDetectionService.HasPotentialMatches();
-                
+     
+            _shuffleHandler.StartShuffleAnimation(_gridCells, _shuffleAnimationDuration, () => {
+                _shuffleHandler.ShuffleBoard();
+        
+                bool hasPotentialMatches = _matchDetectionHandler.HasPotentialMatches();
+        
                 if (!hasPotentialMatches && _currentShuffleAttempt < _maxShuffleAttempts)
                 { 
-                    _shuffleService.ShuffleBoard();
-                    hasPotentialMatches = _matchDetectionService.HasPotentialMatches();
+                    _shuffleHandler.ShuffleBoard();
+                    hasPotentialMatches = _matchDetectionHandler.HasPotentialMatches();
                 }
-                
+        
                 OnBoardShuffleCompleted?.Invoke();
                 _isShuffling = false; 
             });
@@ -154,12 +154,12 @@ namespace AgaveCase.Board.Runtime
          
         public void AddAnimationCompletedCallback(Action callback)
         {
-            _animationService.AddAnimationCompletedCallback(callback);
+            _boardAnimationHandler.AddAnimationCompletedCallback(callback);
         }
          
         public void RemoveElementAt(Vector2Int position)
         {
-            _elementService.RemoveElementAt(position, this);
+            _elementHandler.RemoveElementAt(position, this);
         }
     }
 }

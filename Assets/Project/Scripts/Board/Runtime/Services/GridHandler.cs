@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace AgaveCase.Board.Runtime
 { 
-    public class BoardGridService
+    public class GridHandler
     {
         private readonly GridCell _gridCellPrefab;
         private readonly Transform _gridContainer;
         private readonly float _cellSize;
         private readonly float _screenFillPercentage;
         private readonly Camera _camera; 
-        public BoardGridService(GridCell gridCellPrefab,  Transform gridContainer, float cellSize, float screenFillPercentage, Camera camera)
+        public GridHandler(GridCell gridCellPrefab,  Transform gridContainer, float cellSize, float screenFillPercentage, Camera camera)
         {
             _gridCellPrefab = gridCellPrefab;
             _gridContainer = gridContainer;
