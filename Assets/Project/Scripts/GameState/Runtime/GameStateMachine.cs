@@ -59,9 +59,7 @@ namespace AgaveCase.GameState.Runtime
             _boardService = new BoardServiceAdapter(_boardManager);
             _scoreService = new ScoreServiceAdapter(ScoreData);
             _moveService = new MoveServiceAdapter(MoveData);
-            _uiService = new UIServiceAdapter(_gameUIController);
-             
-            _moveService.OnOutOfMoves += GameEnded;
+            _uiService = new UIServiceAdapter(_gameUIController); 
         }
 
         private void CreateStates()
@@ -90,7 +88,7 @@ namespace AgaveCase.GameState.Runtime
             ChangeState<LoseState>(); 
         }
 
-        public void GameEnded()
+        public void DetermineGameResult()
         {
              if(ScoreService.IsGoalReached) WinGame();
              else LoseGame();

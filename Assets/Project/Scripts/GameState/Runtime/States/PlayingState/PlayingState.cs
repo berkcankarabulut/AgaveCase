@@ -222,7 +222,8 @@ namespace AgaveCase.GameState.Runtime
             _moveService.DecrementMove();
             _boardService.AddAnimationCompletedCallback(() =>
             {
-                _inputHandler.EnableInput(true);
+                if(_moveService.MovesRemaining == 0) GameStateMachine.DetermineGameResult();
+                else _inputHandler.EnableInput(true);
             });
  
             _boardService.ProcessMatchedElementsWithCallback(positions, () => { });
