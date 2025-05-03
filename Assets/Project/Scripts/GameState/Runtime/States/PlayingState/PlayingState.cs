@@ -21,8 +21,7 @@ namespace AgaveCase.GameState.Runtime
          
         private readonly List<GridCell> _selectedCells = new List<GridCell>();
         private ElementDataSO _currentElementType;
-        private GridCell _lastSelectedCell;
-        private bool _isSelecting;
+        private GridCell _lastSelectedCell; 
 
         public PlayingState(GameStateMachine stateMachine, LineRenderer lineRenderer)
             : base(stateMachine)
@@ -99,8 +98,7 @@ namespace AgaveCase.GameState.Runtime
         {
             GridCell cell = _inputHandler.GetCellUnderCursor();
             if (!IsValidCellForSelection(cell)) return;
-
-            _isSelecting = true;
+ 
             _currentElementType = cell.GetElement().ElementData;
             AddCellToSelection(cell);
         }
@@ -115,9 +113,7 @@ namespace AgaveCase.GameState.Runtime
         }
 
         private void EndSelection()
-        {
-            _isSelecting = false;
-            
+        { 
             if (_selectedCells.Count >= _minimumMatchLength)
             {
                 ProcessMatch();
@@ -186,8 +182,7 @@ namespace AgaveCase.GameState.Runtime
             DeselectAllCells();
             _selectedCells.Clear();
             _currentElementType = null;
-            _lastSelectedCell = null;
-            _isSelecting = false;
+            _lastSelectedCell = null; 
             
             _lineRendererHandler.HideSelectionLine();
         }
