@@ -4,26 +4,26 @@ namespace AgaveCase.GameState.Runtime
 { 
     public class UIServiceAdapter : IUIService
     {
-        private readonly GameUIController _gameUIController;
+        private readonly GameUIStateMachine _gameUIStateMachine;
 
-        public UIServiceAdapter(GameUIController gameUIController)
+        public UIServiceAdapter(GameUIStateMachine gameUIStateMachine)
         {
-            _gameUIController = gameUIController;
+            _gameUIStateMachine = gameUIStateMachine;
         }
 
-        public void SetStatusGamePanel(bool status)
+        public void OpenPlayingPanel()
         {
-            _gameUIController.SetGamePanel(status);
+            _gameUIStateMachine.PlayingState();
         }
         
-        public void SetStatusWinPanel(bool status)
+        public void OpenWinPanel()
         {
-            _gameUIController.SetWinPanel(status);
+            _gameUIStateMachine.WinState();
         }
         
-        public void SetStatusLosePanel(bool status)
+        public void OpenLosePanel()
         {
-            _gameUIController.SetLosePanel(status);
+            _gameUIStateMachine.LoseState();
         }
     }
 }

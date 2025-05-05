@@ -13,12 +13,11 @@ namespace AgaveCase.GameState.Runtime
 
         public override void Enter()
         {
-            _uiService.SetStatusLosePanel(true);  
+            _uiService.OpenLosePanel();  
         } 
         
         public override void Exit()
-        {
-            _uiService.SetStatusLosePanel(false); 
+        { 
         }
     }
 }

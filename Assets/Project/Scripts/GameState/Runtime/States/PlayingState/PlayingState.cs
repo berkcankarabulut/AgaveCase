@@ -47,7 +47,7 @@ namespace AgaveCase.GameState.Runtime
         {
             ResetSelection();
             _inputHandler.EnableInput(true);
-            _uiService.SetStatusGamePanel(true);
+            _uiService.OpenPlayingPanel();
             
             RegisterEvents();
         }
@@ -60,8 +60,7 @@ namespace AgaveCase.GameState.Runtime
         public override void Exit()
         {
             ResetSelection();
-            UnregisterEvents();
-            _uiService.SetStatusGamePanel(false);
+            UnregisterEvents(); 
             
             _lineRendererHandler.HideSelectionLine();
         }

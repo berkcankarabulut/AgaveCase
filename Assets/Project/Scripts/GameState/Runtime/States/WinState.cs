@@ -14,12 +14,11 @@ namespace AgaveCase.GameState.Runtime
 
         public override void Enter()
         {
-            _uiService.SetStatusWinPanel(true); 
+            _uiService.OpenWinPanel(); 
         } 
 
         public override void Exit()
-        {
-            _uiService.SetStatusWinPanel(false);
+        { 
         }
     }
 }

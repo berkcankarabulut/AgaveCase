@@ -2,7 +2,8 @@ using UnityEngine;
 using AgaveCase.Board.Runtime;
 using AgaveCase.StateMachine.Runtime; 
 using AgaveCase.Data.Runtime;
-using AgaveCase.GameUI.Runtime; 
+using AgaveCase.GameUI.Runtime;
+using UnityEngine.Serialization;
 
 namespace AgaveCase.GameState.Runtime
 {  
@@ -13,7 +14,7 @@ namespace AgaveCase.GameState.Runtime
         
         [Header("Component References")]
         [SerializeField] private BoardManager _boardManager;
-        [SerializeField] private GameUIController _gameUIController;
+        [FormerlySerializedAs("_gameUIController")] [SerializeField] private GameUIStateMachine gameUIStateMachine;
         
         [Header("Visual Effects")]
         [SerializeField] private LineRenderer _selectionLineRenderer;
@@ -54,12 +55,12 @@ namespace AgaveCase.GameState.Runtime
             ScoreData = new ScoreData(_dataContainer.gameData.TargetScore);
             MoveData = new MoveData(_dataContainer.gameData.MovesLimit);
             
-            if(_gameUIController != null) _gameUIController.Init(ScoreData, MoveData);
+            if(gameUIStateMachine != null) gameUIStateMachine.Init(ScoreData, MoveData);
              
             _boardService = new BoardServiceAdapter(_boardManager);
             _scoreService = new ScoreServiceAdapter(ScoreData);
             _moveService = new MoveServiceAdapter(MoveData);
-            _uiService = new UIServiceAdapter(_gameUIController); 
+            _uiService = new UIServiceAdapter(gameUIStateMachine); 
         }
 
         private void CreateStates()
