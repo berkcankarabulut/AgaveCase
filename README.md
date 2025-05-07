@@ -79,16 +79,16 @@
                 <li><code>ElementPoolHandler</code>: Interface with pooling system</li>
             </ul>
         </div>        
-        <div class="module">
-            <h3>UI System</h3>
-            <p>Manages game interface and visual feedback:</p>
-            <ul>
-                <li><code>GameUIController</code>: Main UI controller</li>
-                <li><code>ScoreUI</code>: Score display component</li>
-                <li><code>MoveUI</code>: Move counter component</li>
-                <li><code>UIServiceAdapter</code>: Adapter for UI service interface</li>
-            </ul>
-        </div>        
+   <div class="module">
+    <h3>UI System</h3>
+    <p>Manages game interface and state transitions:</p>
+    <ul>
+        <li><code>GameUIStateMachine</code>: Controls UI state transitions (Playing, Win, Lose)</li>
+        <li><code>PlayingState</code>: Manages in-game UI elements, score/move updates, and animations</li>
+        <li><code>WinState</code>: Handles win screen display and reset functionality</li>
+        <li><code>LoseState</code>: Manages lose screen display and reset functionality</li>
+    </ul>
+</div>     
         <div class="module">
             <h3>Data System</h3>
             <p>Contains configuration and game parameters:</p>
