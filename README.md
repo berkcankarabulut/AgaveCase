@@ -1,9 +1,9 @@
-
-<div style="display: flex; justify-content: center;">
-    <img src="https://github.com/user-attachments/assets/1d798ffc-9029-4810-b152-c7b0f89ba85d" alt="Gameplay GIF">
-</div>
+ 
 <html lang="en">
 <body>
+    <div style="display: flex; justify-content: center; margin: 30px 0;">
+        <img src="https://github.com/user-attachments/assets/1d798ffc-9029-4810-b152-c7b0f89ba85d" alt="Gameplay GIF" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </div>
     <h1> 
         <span class="emoji">🎮</span>
         Agave Case Match-3 Game
