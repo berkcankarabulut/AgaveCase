@@ -1,6 +1,7 @@
 
- ![movie_004-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4f388006-29e0-456c-81d4-bbc360431521)
-
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/user-attachments/assets/1d798ffc-9029-4810-b152-c7b0f89ba85d" alt="Gameplay GIF">
+</div>
 <html lang="en">
 <body>
     <h1> 
