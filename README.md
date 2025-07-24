@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+
+![gif](https://github.com/user-attachments/assets/2685f379-183e-47ad-855e-e972debf6b08)
+
 <html lang="en">
 <body>
     <h1>
+        [Image](https://github.com/user-attachments/assets/48c9e2c8-2c9c-4897-bcaa-ddc2356ea64b)
         <span class="emoji">🎮</span>
         Agave Case Match-3 Game
     </h1>    
