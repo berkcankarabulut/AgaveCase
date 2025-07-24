@@ -1,10 +1,9 @@
 
-![gif](https://github.com/user-attachments/assets/2685f379-183e-47ad-855e-e972debf6b08)
+ ![movie_004-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4f388006-29e0-456c-81d4-bbc360431521)
 
 <html lang="en">
 <body>
-    <h1>
-        [Image](https://github.com/user-attachments/assets/48c9e2c8-2c9c-4897-bcaa-ddc2356ea64b)
+    <h1> 
         <span class="emoji">🎮</span>
         Agave Case Match-3 Game
     </h1>    
