@@ -12,7 +12,7 @@ namespace AgaveCase.Board.Runtime
         private readonly ElementDataSO[] _availableElements;
         private readonly ElementBase _elementPrefab;
         private readonly ObjectPooler _objectPooler;
-        private readonly Vector3 _elementScale = new Vector3(0.8f,0.8f,1);
+        private readonly Vector3 _elementScale = new Vector3(0.6f,0.6f,1);
         public ElementHandler(ElementDataSO[] availableElements, ElementBase elementPrefab, ObjectPooler objectPooler)
         {
             _availableElements = availableElements;

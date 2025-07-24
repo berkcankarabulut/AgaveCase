@@ -25,11 +25,7 @@ namespace AgaveCase.Elements.Runtime
 
         public void OnDeselected()
         {
-            if (_selectedRenderer != null)
-            {
-                _selectedRenderer.enabled = false;
-            }
-
+            if (_selectedRenderer != null) _selectedRenderer.enabled = false; 
             _element.AnimationHandler.PlayDeselectAnimation();
         }
 

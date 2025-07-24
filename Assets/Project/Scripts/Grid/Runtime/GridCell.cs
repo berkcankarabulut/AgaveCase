@@ -19,14 +19,23 @@ namespace Grid.Runtime
         }
 
         public void SetElement(ElementBase element)
-        { 
-            if (element == null) _currentElement = null;
-            else _currentElement = element;
+        {
+            _currentElement = element == null ? null : element;
         }
 
         public ElementBase GetElement()
         {
             return _currentElement;
-        }  
+        }
+
+        public void EnterTest()
+        {
+            Debug.Log("Enter");
+        }
+
+        public void ExitTest()
+        {
+            Debug.Log("Exit");
+        }
     }
 }

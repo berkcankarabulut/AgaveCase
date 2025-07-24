@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DataContainer
   m_EditorClassIdentifier: 
   gridData:
-    _width: 6
-    _height: 10
+    _width: 8
+    _height: 8
     _cellSize: 1
     _screenFillPercentage: 0.8
   gameData:
-    _targetScore: 10
+    _targetScore: 20
     _movesLimit: 6
     _minMatchCount: 3
