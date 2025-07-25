@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Project.Board.Runtime;
 using Project.Elements.Runtime;
 using Project.GridSystem.Runtime;
 using UnityEngine;
@@ -22,13 +24,12 @@ namespace Project.GameState.Runtime
         private readonly List<GridCell> _selectedCells = new List<GridCell>();
         private ElementDataSO _currentElementType;
         private GridCell _lastSelectedCell; 
-
+        private readonly BoardFacade _boardFacade;
         public PlayingState(GameStateMachine stateMachine, LineRenderer lineRenderer)
             : base(stateMachine)
         { 
             Camera mainCamera = Camera.main; 
-             
-            _boardService = stateMachine.BoardService;
+            _boardFacade = stateMachine.BoardFacade; 
             _scoreService = stateMachine.ScoreService;
             _moveService = stateMachine.MoveService;
             _uiService = stateMachine.UIService;
@@ -218,31 +219,38 @@ namespace Project.GameState.Runtime
             }
         }
  
-        private void ProcessMatch()
+        private async void ProcessMatch()
         {
             _inputHandler.EnableInput(false);
-             
-            if (_currentElementType != null)
+    
+            if (_selectedCells.Count >= _minimumMatchLength)
             {
-                int score = _selectedCells.Count * _currentElementType.PointValue;
-                _scoreService.AddScore(score);
-            } 
-            List<Vector2Int> positions = new List<Vector2Int>();
-            foreach (GridCell cell in _selectedCells)
-            {
-                positions.Add(cell.Position);
+                // ✅ GridCell'leri Vector2Int'e çevir
+                var positions = _selectedCells.Select(cell => cell.Position).ToList();
+        
+                // ✅ Artık doğru tip
+                bool success = await _boardFacade.ProcessPlayerMoveAsync(positions);
+        
+                if (success)
+                {
+                    // Score logic
+                    if (_currentElementType != null)
+                    {
+                        int score = _selectedCells.Count * _currentElementType.PointValue;
+                        _scoreService.AddScore(score);
+                    }
+            
+                    _moveService.DecrementMove();
+            
+                    if (_moveService.MovesRemaining == 0)
+                    {
+                        GameStateMachine.DetermineGameResult();
+                    }
+                }
             }
- 
-            _moveService.DecrementMove();
-            _boardService.AddAnimationCompletedCallback(() =>
-            {
-                if(_moveService.MovesRemaining == 0) GameStateMachine.DetermineGameResult();
-                else _inputHandler.EnableInput(true);
-            });
- 
-            _boardService.ProcessMatchedElementsWithCallback(positions, () => { });
-
+    
             ResetSelection();
-        } 
+            _inputHandler.EnableInput(true);
+        }
     }
 }

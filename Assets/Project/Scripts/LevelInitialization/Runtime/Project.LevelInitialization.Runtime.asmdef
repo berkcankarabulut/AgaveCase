@@ -1,14 +1,13 @@
 {
-    "name": "Project.GameState.Runtime",
-    "rootNamespace": "",
+    "name": "Project.LevelInitialization.Runtime",
+    "rootNamespace": "Project.LevelInitialization.Runtime",
     "references": [
-        "GUID:d26d7d25dfa5af148a7a82dc0cc14384",
-        "GUID:a573a70f2fb2eac4fb6cab63142a06d9",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
         "GUID:c336ec5d03730ad42965e922ff340331",
         "GUID:ae6778352f635464a8fed0e6370856b4",
-        "GUID:94559cddcde81c14198247a96b9979ac",
+        "GUID:47eb0af006abfdc4db0b57dc56f3cb68",
         "GUID:43a3871c32ac97543b92020311142d48",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "GUID:94559cddcde81c14198247a96b9979ac"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

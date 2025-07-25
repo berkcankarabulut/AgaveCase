@@ -2,7 +2,8 @@ using UnityEngine;
 using Project.Board.Runtime;
 using Project.StateMachine.Runtime;
 using Project.Data.Runtime;
-using Project.GameUI.Runtime; 
+using Project.GameUI.Runtime;
+using UnityEngine.Serialization;
 
 namespace Project.GameState.Runtime
 {
@@ -12,14 +13,13 @@ namespace Project.GameState.Runtime
         private DataContainer _dataContainer;
 
         [Header("Component References")] [SerializeField]
-        private BoardManager _boardManager;
+        private BoardFacade _boardFacade;
 
-        [SerializeField] private GameUIStateMachine gameUIStateMachine;
+        [SerializeField] private GameUIStateMachine _gameUIStateMachine;
 
         [Header("Visual Effects")] [SerializeField]
         private LineRenderer _selectionLineRenderer;
 
-        private IBoardService _boardService;
         private IScoreService _scoreService;
         private IMoveService _moveService;
         private IUIService _uiService;
@@ -28,39 +28,44 @@ namespace Project.GameState.Runtime
         private WinState _winState;
         private LoseState _loseState;
 
-        public IBoardService BoardService => _boardService;
         public IScoreService ScoreService => _scoreService;
         public IMoveService MoveService => _moveService;
         public IUIService UIService => _uiService;
         public DataContainer DataContainer => _dataContainer;
 
+        public BoardFacade BoardFacade => _boardFacade;
         public ScoreData ScoreData { get; private set; }
         public MoveData MoveData { get; private set; }
 
-        private void Awake()
+        public void InitializeStates()
         {
             Initialize();
-        }
-
+        } 
+        
         protected override void Initialize()
         {
-            InitializeServices();
-            CreateStates();
-            StartGame();
+            _playingState = new PlayingState(this, FindObjectOfType<LineRenderer>());
+            _winState = new WinState(this);
+            _loseState = new LoseState(this);
+            
+            AddState(_playingState);
+            AddState(_winState);
+            AddState(_loseState);
         }
 
-        private void InitializeServices()
+        public void InitializeServices(ScoreData scoreData, MoveData moveData, BoardFacade boardFacade, GameUIStateMachine gameUIStateMachine)
         {
-            if (_boardManager != null) _boardManager.Init();
-            ScoreData = new ScoreData(_dataContainer.gameData.TargetScore);
-            MoveData = new MoveData(_dataContainer.gameData.MovesLimit);
+            _boardFacade = boardFacade;
+            _gameUIStateMachine = gameUIStateMachine;
+            _boardFacade?.InitializeBoardAsync();
+            ScoreData = scoreData;
+            MoveData = moveData;
 
-            if (gameUIStateMachine != null) gameUIStateMachine.Init(ScoreData, MoveData);
+            if (_gameUIStateMachine != null) _gameUIStateMachine.Init(ScoreData, MoveData);
 
-            _boardService = new BoardServiceAdapter(_boardManager);
             _scoreService = new ScoreServiceAdapter(ScoreData);
             _moveService = new MoveServiceAdapter(MoveData);
-            _uiService = new UIServiceAdapter(gameUIStateMachine);
+            _uiService = new UIServiceAdapter(_gameUIStateMachine);
         }
 
         private void CreateStates()
@@ -74,7 +79,7 @@ namespace Project.GameState.Runtime
             AddState(_loseState);
         }
 
-        private void StartGame()
+        public void StartGame()
         {
             ChangeState<PlayingState>();
         }
@@ -93,6 +98,6 @@ namespace Project.GameState.Runtime
         {
             if (ScoreService.IsGoalReached) WinGame();
             else LoseGame();
-        }
+        } 
     }
 }
