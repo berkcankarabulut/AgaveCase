@@ -6,7 +6,7 @@
     </div>
     <h1> 
         <span class="emoji">🎮</span>
-        Agave Case Match-3 Game
+        Wonder Link Match-3 Game
     </h1>    
     <p>A modular, component-based Match-3 game framework built with Unity, utilizing state machines and service-oriented architecture.</p>    
     <h2>
