@@ -40,61 +40,49 @@ namespace Project.Board.Runtime
         }
 
         private int GetComponentSize(Vector2Int startPos, ElementDataSO targetType, HashSet<Vector2Int> globalVisited)
-        {
-            // BFS (Breadth-First Search) kullanarak component'i tara
+        { 
             Queue<Vector2Int> queue = new Queue<Vector2Int>();
             HashSet<Vector2Int> componentCells = new HashSet<Vector2Int>();
-
-            // Başlangıç cell'i ekle
+ 
             queue.Enqueue(startPos);
             componentCells.Add(startPos);
             globalVisited.Add(startPos);
-
-            // 4 yön: yukarı, aşağı, sol, sağ
+ 
             Vector2Int[] directions = new Vector2Int[]
             {
-                new Vector2Int(0, 1), // Yukarı
-                new Vector2Int(0, -1), // Aşağı  
-                new Vector2Int(-1, 0), // Sol
-                new Vector2Int(1, 0) // Sağ
+                new Vector2Int(0, 1), 
+                new Vector2Int(0, -1),  
+                new Vector2Int(-1, 0),  
+                new Vector2Int(1, 0)  
             };
-
-            // BFS loop - tüm bağlı cell'leri bul
+ 
             while (queue.Count > 0)
             {
                 Vector2Int currentPos = queue.Dequeue();
-
-                // 4 komşuyu kontrol et
+ 
                 foreach (Vector2Int direction in directions)
                 {
                     Vector2Int neighborPos = currentPos + direction;
-
-                    // Grid sınırları içinde mi?
+ 
                     if (neighborPos.x < 0 || neighborPos.x >= _boardManager.GridWidth ||
                         neighborPos.y < 0 || neighborPos.y >= _boardManager.GridHeight)
                         continue;
-
-                    // Bu cell'i daha önce ziyaret ettik mi?
+ 
                     if (componentCells.Contains(neighborPos))
                         continue;
-
-                    // Bu pozisyonda element var mı?
+ 
                     GridCell neighborCell = _boardManager.GetGridAt(neighborPos);
                     if (neighborCell?.GetElement() == null)
                         continue;
-
-                    // Aynı renk/tip mi?
+ 
                     if (!IsSameElementType(neighborCell.GetElement().ElementData, targetType))
                         continue;
-
-                    // Evet! Bu cell'i component'e ekle
+ 
                     componentCells.Add(neighborPos);
                     globalVisited.Add(neighborPos);
-                    queue.Enqueue(neighborPos); // Bunun da komşularını kontrol et
+                    queue.Enqueue(neighborPos);  
                 }
-            }
-
-            // Toplam kaç cell bulduğumuzu döndür
+            } 
             return componentCells.Count;
         } 
 
