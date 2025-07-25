@@ -1,7 +1,6 @@
-using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine; 
 
-namespace AgaveCase.Pooler.Runtime
+namespace Project.Pooler.Runtime
 {
     [System.Serializable]
     public class PooledObjectData

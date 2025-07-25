@@ -1,12 +1,13 @@
-using AgaveCase.Data.Runtime;
-using AgaveCase.StateMachine.Runtime;
+ 
+using Project.StateMachine.Runtime;
 using DG.Tweening;
 using System;
+using Project.Data.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AgaveCase.GameUI.Runtime
+namespace Project.GameUI.Runtime
 {
     public class PlayingState : BaseState
     {

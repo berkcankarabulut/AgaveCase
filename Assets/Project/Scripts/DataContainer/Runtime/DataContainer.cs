@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace AgaveCase.Data.Runtime
+namespace Project.Data.Runtime
 {
-    [CreateAssetMenu(fileName = "GameDataContainer", menuName = "Agave Case/Game Data Container")]
+    [CreateAssetMenu(fileName = "GameDataContainer", menuName = "Game ScriptableObjects/Game Data Container")]
     public class DataContainer : ScriptableObject
     { 
         [Header("Grid Configuration")]

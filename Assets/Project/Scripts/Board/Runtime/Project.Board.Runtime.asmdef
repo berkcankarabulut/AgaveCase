@@ -1,13 +1,12 @@
 {
-    "name": "AgaveCase.GameState.Runtime",
-    "rootNamespace": "AgaveCase.GameState.Runtime",
+    "name": "Project.Board.Runtime",
+    "rootNamespace": "",
     "references": [
-        "GUID:94559cddcde81c14198247a96b9979ac",
+        "GUID:c336ec5d03730ad42965e922ff340331",
         "GUID:d26d7d25dfa5af148a7a82dc0cc14384",
         "GUID:a573a70f2fb2eac4fb6cab63142a06d9",
-        "GUID:ae6778352f635464a8fed0e6370856b4",
-        "GUID:c336ec5d03730ad42965e922ff340331",
-        "GUID:43a3871c32ac97543b92020311142d48"
+        "GUID:d94316df58f6cd943b73e2598661d3e2",
+        "GUID:98def15a25ea5494a982148132425977"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

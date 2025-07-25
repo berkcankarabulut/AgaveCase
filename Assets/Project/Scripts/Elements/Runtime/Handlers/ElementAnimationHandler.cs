@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace AgaveCase.Elements.Runtime
+namespace Project.Elements.Runtime
 {
     public class ElementAnimationHandler
     {

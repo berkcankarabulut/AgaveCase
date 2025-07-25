@@ -1,4 +1,4 @@
-namespace AgaveCase.StateMachine.Runtime
+namespace Project.StateMachine.Runtime
 { 
     public interface IState
     {

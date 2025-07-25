@@ -1,8 +1,10 @@
 {
-    "name": "AgaveCase.StateMachine.Runtime",
-    "rootNamespace": "AgaveCase.StateMachine.Runtime",
+    "name": "Project.StateMachine.Editor",
+    "rootNamespace": "Project.StateMachine.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

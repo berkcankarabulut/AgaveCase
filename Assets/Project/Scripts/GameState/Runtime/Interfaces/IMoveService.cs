@@ -1,6 +1,6 @@
 using System;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public interface IMoveService
     {

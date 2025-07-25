@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Grid.Runtime;
+using Project.GridSystem.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public class LineRendererHandler : ILineRendererHandler
     {

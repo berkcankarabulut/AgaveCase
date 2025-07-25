@@ -1,7 +1,7 @@
 using System;
-using AgaveCase.Data.Runtime;
+using Project.Data.Runtime;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public class MoveServiceAdapter : IMoveService
     {

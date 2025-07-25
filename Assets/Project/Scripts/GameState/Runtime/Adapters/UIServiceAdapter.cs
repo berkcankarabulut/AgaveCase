@@ -1,6 +1,6 @@
-using AgaveCase.GameUI.Runtime;
+using Project.GameUI.Runtime;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public class UIServiceAdapter : IUIService
     {

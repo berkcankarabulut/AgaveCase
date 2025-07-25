@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Grid.Runtime;
-using AgaveCase.Elements.Runtime;
+using Project.GridSystem.Runtime;
+using Project.Elements.Runtime;
 using DG.Tweening;
 
-namespace AgaveCase.Board.Runtime
+namespace Project.Board.Runtime
 {
     public class BoardAnimationHandler
     {

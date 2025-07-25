@@ -1,11 +1,11 @@
 using UnityEngine; 
-using AgaveCase.Board.Runtime;
-using AgaveCase.StateMachine.Runtime; 
-using AgaveCase.Data.Runtime;
-using AgaveCase.GameUI.Runtime;
+using Project.Board.Runtime;
+using Project.StateMachine.Runtime; 
+using Project.Data.Runtime;
+using Project.GameUI.Runtime;
 using UnityEngine.Serialization;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 {  
     public class GameStateMachine : BaseStateMachine
     {   

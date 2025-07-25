@@ -1,9 +1,7 @@
 {
-    "name": "AgaveCase.EventChannel.Editor",
-    "rootNamespace": "AgaveCase.EventChannel.Editor",
-    "references": [
-        "GUID:45092eaf6b140bb4a91879ab7308787c"
-    ],
+    "name": "Project.GameInitilazer.Editor",
+    "rootNamespace": "Project.GameInitilazer.Editor",
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],

@@ -1,7 +1,7 @@
-using AgaveCase.Elements.Runtime;
+using Project.Elements.Runtime;
 using UnityEngine;
 
-namespace Grid.Runtime
+namespace Project.GridSystem.Runtime
 {
     public class GridCell : MonoBehaviour
     {  

@@ -1,12 +1,8 @@
 {
-    "name": "AgaveCase.Board.Editor",
-    "rootNamespace": "AgaveCase.Board.Editor",
-    "references": [
-        "GUID:ae6778352f635464a8fed0e6370856b4"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "name": "Project.StateMachine.Runtime",
+    "rootNamespace": "Project.StateMachine.Runtime",
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

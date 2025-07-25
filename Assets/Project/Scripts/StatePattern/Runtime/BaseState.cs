@@ -1,6 +1,4 @@
-using System.ComponentModel;
-
-namespace AgaveCase.StateMachine.Runtime
+namespace Project.StateMachine.Runtime
 { 
     public abstract class BaseState : IState
     {

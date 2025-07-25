@@ -1,8 +1,8 @@
 using UnityEngine; 
 using System.Collections;
-using AgaveCase.Pooler.Runtime;
+using Project.Pooler.Runtime;
 
-namespace AgaveCase.Elements.Runtime
+namespace Project.Elements.Runtime
 {
     public class PoolableEffect : MonoBehaviour, IPoolable
     {

@@ -1,11 +1,11 @@
 using UnityEngine;
 using TMPro;  
-using AgaveCase.Data.Runtime;
-using AgaveCase.EventChannel.Runtime;
-using AgaveCase.StateMachine.Runtime;
+using Project.Data.Runtime;
+using Project.EventChannel.Runtime;
+using Project.StateMachine.Runtime;
 using UnityEngine.UI;
 
-namespace AgaveCase.GameUI.Runtime
+namespace Project.GameUI.Runtime
 {
     public class GameUIStateMachine : BaseStateMachine
     {  

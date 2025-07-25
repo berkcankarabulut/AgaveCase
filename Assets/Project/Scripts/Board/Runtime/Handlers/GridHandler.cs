@@ -1,7 +1,7 @@
-using Grid.Runtime;
+using Project.GridSystem.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Board.Runtime
+namespace Project.Board.Runtime
 { 
     public class GridHandler
     {

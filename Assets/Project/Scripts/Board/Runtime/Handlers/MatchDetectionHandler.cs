@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using AgaveCase.Elements.Runtime;
-using Grid.Runtime;
+using Project.Elements.Runtime;
+using Project.GridSystem.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Board.Runtime
+namespace Project.Board.Runtime
 {  
     public class MatchDetectionHandler
     {

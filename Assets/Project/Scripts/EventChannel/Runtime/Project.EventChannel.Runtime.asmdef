@@ -1,6 +1,6 @@
 {
-    "name": "AgaveCase.EventChannel.Runtime",
-    "rootNamespace": "AgaveCase.EventChannel.Runtime",
+    "name": "Project.EventChannel.Runtime",
+    "rootNamespace": "Project.EventChannel.Runtime",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

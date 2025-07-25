@@ -1,8 +1,11 @@
 {
-    "name": "AgaveCase.SceneHandler.Runtime",
-    "rootNamespace": "AgaveCase.SceneHandler.Runtime",
+    "name": "Project.GameInitilazer.Runtime",
+    "rootNamespace": "",
     "references": [
-        "GUID:45092eaf6b140bb4a91879ab7308787c"
+        "GUID:45092eaf6b140bb4a91879ab7308787c",
+        "GUID:c336ec5d03730ad42965e922ff340331",
+        "GUID:a2ba0e040e50baf47b4efc0fe5503f44",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

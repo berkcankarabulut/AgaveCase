@@ -1,6 +1,6 @@
-using AgaveCase.StateMachine.Runtime;
+using Project.StateMachine.Runtime;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public abstract class BaseGameState : BaseState
     {

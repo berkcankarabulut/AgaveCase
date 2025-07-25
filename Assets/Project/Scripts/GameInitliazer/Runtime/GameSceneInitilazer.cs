@@ -1,8 +1,8 @@
-using AgaveCase.EventChannel.Runtime;
-using CommandHandler.Runtime; 
+using CommandHandler.Runtime;
+using Project.EventChannel.Runtime; 
 using UnityEngine;
 
-namespace AgaveCase.GameInitilazer.Runtime
+namespace Project.GameInitilazer.Runtime
 {
     public class GameSceneInitilazer : CommandExecuteHandler
     {  

@@ -1,8 +1,8 @@
 using System;
-using Grid.Runtime;
+using Project.GridSystem.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 {
     public interface IInputHandler
     { 

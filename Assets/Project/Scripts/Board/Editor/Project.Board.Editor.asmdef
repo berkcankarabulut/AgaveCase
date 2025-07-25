@@ -1,8 +1,8 @@
 {
-    "name": "AgaveCase.GameUI.Editor",
-    "rootNamespace": "AgaveCase.GameUI.Editor",
+    "name": "Project.Board.Editor",
+    "rootNamespace": "Project.Board.Editor",
     "references": [
-        "GUID:43a3871c32ac97543b92020311142d48"
+        "GUID:ae6778352f635464a8fed0e6370856b4"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using Grid.Runtime;
-using AgaveCase.Board.Runtime;
+using Project.Board.Runtime;
+using Project.GridSystem.Runtime;
+using UnityEngine; 
 
-namespace AgaveCase.GameState.Runtime
+namespace Project.GameState.Runtime
 { 
     public class BoardServiceAdapter : IBoardService
     {

@@ -1,9 +1,9 @@
 using System;
-using AgaveCase.StateMachine.Runtime;
+using Project.StateMachine.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AgaveCase.GameUI.Runtime
+namespace Project.GameUI.Runtime
 {
     public class LoseState : BaseState
     {

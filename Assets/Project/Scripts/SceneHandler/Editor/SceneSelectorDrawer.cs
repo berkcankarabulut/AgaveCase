@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
-using AgaveCase.SceneHandler.Runtime;
+using Project.SceneHandler.Runtime;
 
-namespace AgaveCase.SceneHandler.Editor
+namespace Project.SceneHandler.Editor
 {
     [CustomPropertyDrawer(typeof(SceneSelectorAttribute))]
     public class SceneSelectorDrawer : PropertyDrawer

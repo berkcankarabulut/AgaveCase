@@ -1,6 +1,6 @@
 using System; 
 
-namespace AgaveCase.Data.Runtime
+namespace Project.Data.Runtime
 { 
     public class ScoreData
     { 

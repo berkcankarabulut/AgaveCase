@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AgaveCase.SceneHandler.Runtime
+namespace Project.SceneHandler.Runtime
 { 
     public class SceneSelectorAttribute : PropertyAttribute
     {

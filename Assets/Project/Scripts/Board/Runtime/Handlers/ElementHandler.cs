@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Grid.Runtime;
-using AgaveCase.Elements.Runtime;
-using AgaveCase.Pooler.Runtime;
+using System; 
+using Project.GridSystem.Runtime;
+using Project.Elements.Runtime;
+using Project.Pooler.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Board.Runtime
+namespace Project.Board.Runtime
 { 
     public class ElementHandler
     {

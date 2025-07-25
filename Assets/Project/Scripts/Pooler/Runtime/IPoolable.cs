@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AgaveCase.Pooler.Runtime
+namespace Project.Pooler.Runtime
 {
     public interface IPoolable
     {

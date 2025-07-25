@@ -1,7 +1,9 @@
 {
-    "name": "AgaveCase.Data.Runtime",
-    "rootNamespace": "AgaveCase.Data.Runtime",
-    "references": [],
+    "name": "Project.Pooler.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:98def15a25ea5494a982148132425977"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

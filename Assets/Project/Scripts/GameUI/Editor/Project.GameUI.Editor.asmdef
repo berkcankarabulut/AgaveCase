@@ -1,10 +1,12 @@
 {
-    "name": "AgaveCase.Pooler.Runtime",
-    "rootNamespace": "AgaveCase.Pooler.Runtime",
+    "name": "Project.GameUI.Editor",
+    "rootNamespace": "Project.GameUI.Editor",
     "references": [
-        "GUID:98def15a25ea5494a982148132425977"
+        "GUID:43a3871c32ac97543b92020311142d48"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AgaveCase.Data.Runtime
+namespace Project.Data.Runtime
 {
     [System.Serializable]
     public class GameData

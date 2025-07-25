@@ -1,10 +1,11 @@
-using AgaveCase.Data.Runtime; 
-using CommandHandler.Runtime; 
+ 
+using CommandHandler.Runtime;
+using Project.Data.Runtime;
 using TMPro;
 using UnityEngine; 
 using UnityEngine.UI;
 
-namespace AgaveCase.GameInitilazer.Runtime
+namespace Project.GameInitilazer.Runtime
 {
     public class GetGridInfoCommand : Command
     {  

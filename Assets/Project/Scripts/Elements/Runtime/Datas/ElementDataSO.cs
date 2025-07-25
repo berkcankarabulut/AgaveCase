@@ -1,10 +1,10 @@
-using AgaveCase.Pooler.Runtime;
-using GuidSystem.Runtime; 
+using GuidSystem.Runtime;
+using Project.Pooler.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Elements.Runtime
+namespace Project.Elements.Runtime
 {
-    [CreateAssetMenu(fileName = "New Element Data", menuName = "Agave Case/Grid System/Element Data")]
+    [CreateAssetMenu(fileName = "New Element Data", menuName = "Game ScriptableObjects/Grid System/Element Data")]
     public class ElementDataSO : ScriptableObject
     {
         [SerializeField] private SerializableGuid _id = SerializableGuid.NewGuid();

@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Grid.Runtime;
-using AgaveCase.Elements.Runtime;
-using AgaveCase.Data.Runtime;
-using AgaveCase.Pooler.Runtime;
+using Project.Data.Runtime;
+using Project.Elements.Runtime;
+using Project.GridSystem.Runtime;
+using Project.Pooler.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Board.Runtime
+namespace Project.Board.Runtime
 { 
     public class BoardManager : MonoBehaviour
     { 

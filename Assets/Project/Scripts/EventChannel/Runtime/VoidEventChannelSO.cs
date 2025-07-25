@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace AgaveCase.EventChannel.Runtime
+namespace Project.EventChannel.Runtime
 {
-    [CreateAssetMenu(menuName = "Agave Case/Events/Channels/Void Event Channel")]
+    [CreateAssetMenu(menuName = "Game ScriptableObjects/Events/Channels/Void Event Channel")]
     public class VoidEventChannelSO : ScriptableObject
     {
         public UnityAction onEventRaised;

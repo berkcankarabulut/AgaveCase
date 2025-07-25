@@ -1,12 +1,11 @@
 {
-    "name": "AgaveCase.Pooler.Editor",
-    "rootNamespace": "AgaveCase.Pooler.Editor",
+    "name": "Project.Elements.Runtime",
+    "rootNamespace": "Project.Elements.Runtime",
     "references": [
-        "GUID:d94316df58f6cd943b73e2598661d3e2"
+        "GUID:d94316df58f6cd943b73e2598661d3e2",
+        "GUID:98def15a25ea5494a982148132425977"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

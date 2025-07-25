@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using AgaveCase.EventChannel.Runtime;
+using Project.EventChannel.Runtime;
 
-namespace AgaveCase.SceneHandler.Runtime
+namespace Project.SceneHandler.Runtime
 {
     public class GameSceneManager : MonoBehaviour
     {

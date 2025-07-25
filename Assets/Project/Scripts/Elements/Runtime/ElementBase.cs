@@ -1,7 +1,7 @@
-using AgaveCase.Pooler.Runtime;
+using Project.Pooler.Runtime;
 using UnityEngine;
 
-namespace AgaveCase.Elements.Runtime
+namespace Project.Elements.Runtime
 {
     public class ElementBase : MonoBehaviour, IPoolable
     {

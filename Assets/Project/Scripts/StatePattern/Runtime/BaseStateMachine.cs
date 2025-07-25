@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AgaveCase.StateMachine.Runtime
+namespace Project.StateMachine.Runtime
 {  
     public abstract class BaseStateMachine : MonoBehaviour
     {

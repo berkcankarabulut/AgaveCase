@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace AgaveCase.SceneHandler.Runtime
+namespace Project.SceneHandler.Runtime
 {
     public class SceneLoader : MonoBehaviour
     {
